@@ -1,20 +1,39 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import * as React from 'react';
+import {
+  Text,
+  View,
+  StyleSheet,
+  SafeAreaView,
+  Platform,
+  StatusBar,
+} from 'react-native';
+import { colors } from './src/utils/colors';
+import { Focus } from './src/features/Focus';
+import { useEffect, useState } from 'react';
+import { Button } from 'react-native-paper';
+import Timer from './src/features/Timer';
 
 export default function App() {
+  const [text, setText] = useState(null);
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <SafeAreaView style={styles.container}>
+      {!text ? (
+        <Focus onPress={it => setText(it)}/>
+      ): (
+        <Timer 
+          subject={text}
+          clearSubject={() => {}}
+          onEnd={() => {}}/>
+      )}
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 100,
+    backgroundColor: colors.darkBlue,
+    padding: 8,
   },
 });
