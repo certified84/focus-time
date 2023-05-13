@@ -11,7 +11,7 @@ import { colors } from './src/utils/colors';
 import { Focus } from './src/features/Focus';
 import { useEffect, useState } from 'react';
 import { Button } from 'react-native-paper';
-import Timer from './src/features/Timer';
+import { Timer } from './src/features/Timer';
 
 export default function App() {
   const [text, setText] = useState(null);
@@ -22,7 +22,7 @@ export default function App() {
       ): (
         <Timer 
           subject={text}
-          clearSubject={() => {}}
+          clearSubject={() => {setText(null)}}
           onEnd={() => {}}/>
       )}
     </SafeAreaView>

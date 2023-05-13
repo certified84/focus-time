@@ -10,8 +10,8 @@ export const Focus = ({onPress}) => {
     const [text, setText] = useState(null);
     return (
         <View style={styles.container}>
+            <Text style={styles.text}>Focus Feature</Text>
             <View style={styles.inputContainer}>
-                {/* <Text style={styles.text}>Focus Feature</Text> */}
                 <TextInput
                     style={styles.textInput} 
                     label="What would like to focus on?"
@@ -29,14 +29,20 @@ export const Focus = ({onPress}) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    // backgroundColor: 'green'
   },
   text: {
     color: colors.white,
+    fontWeight: 'bold',
+    fontSize: 24,
   },
   inputContainer: {
     flexDirection: 'row',
     justifyContent: 'top',
     padding: spacing.lg,
+    // backgroundColor: 'brown'
   },
   textInput: {
     flex: .8,
@@ -45,5 +51,6 @@ const styles = StyleSheet.create({
   buttonContainer: {
     flex: .2,
     justifyContent: 'center',
+    alignItems: 'center',
   }
 });

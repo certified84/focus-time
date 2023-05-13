@@ -8,6 +8,7 @@ export const RoundedButton = ({
   size = 125,
   ...props
 }) => {
+    console.log('init')
   return (
     <TouchableOpacity
       style={[styles(size).radius, style]}
